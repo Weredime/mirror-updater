@@ -3,6 +3,7 @@ on:
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
+  push:
     
 jobs:
   update-bukkit:
@@ -16,6 +17,6 @@ jobs:
         run: |
           cd bukkit
           git remote add mirror https://Weredime:$GH_PAT@github.com/Weredime/Bukkit.git
-          git push --all mirror
+          git push --force --all mirror
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
