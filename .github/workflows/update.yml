@@ -10,13 +10,12 @@ jobs:
 
     steps:
       - name: Clone Repository
-        run: |
-          git clone https://hub.spigotmc.org/stash/scm/spigot/bukkit.git
+        run: git clone https://hub.spigotmc.org/stash/scm/spigot/bukkit.git
         
       - name: Push to mirror
         run: |
           cd bukkit
-          git remote add mirror 'https://Weredime:$GH_PAT@github.com/Weredime/Bukkit.git'
+          git remote add mirror https://Weredime:$GH_PAT@github.com/Weredime/Bukkit.git
           git push --all mirror
         env:
-          GH_PAT: ${{ env.GH_PAT }}
+          GH_PAT: ${{ secrets.GH_PAT }}
