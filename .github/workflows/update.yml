@@ -16,7 +16,7 @@ jobs:
       - name: Push to mirror
         run: |
           cd bukkit
-          git remote add mirror https://Weredime:$GH_PAT@github.com/Weredime/Bukkit.git
-          git push --all --quiet mirror
+          git remote add mirror 'https://Weredime:$GH_PAT@github.com/Weredime/Bukkit.git'
+          git push --all mirror
         env:
           GH_PAT: ${{ env.GH_PAT }}
