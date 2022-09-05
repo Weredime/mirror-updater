@@ -12,11 +12,11 @@ jobs:
       - name: Clone Repository
         run: |
           git clone https://hub.spigotmc.org/stash/scm/spigot/bukkit.git
-          cd bukkit
-          git remote add mirror https://Weredime:$GH_PAT@github.com/Weredime/Bukkit.git
-        env:
-          GH_PAT: ${{ env.GH_PAT }}
         
       - name: Push to mirror
         run: |
+          cd bukkit
+          git remote add mirror https://Weredime:$GH_PAT@github.com/Weredime/Bukkit.git
           git push --all --quiet mirror
+        env:
+          GH_PAT: ${{ env.GH_PAT }}
